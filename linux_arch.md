@@ -25,7 +25,7 @@ chmod +x setup.sh
 
 ### Option 1: ProtonVPN
 ```bash
-sudo pacman -S protonvpn-gui
+sudo pacman -S --noconfirm proton-vpn-gtk-app
 ```
 
 ### Option 2: Manual OpenVPN
@@ -36,3 +36,12 @@ sudo su
 openvpn --config your-config.ovpn
 # Enter OpenVPN credentials when prompted
 ```
+
+
+programs
+
+sudo pacman -S flatpak
+
+acpi_backlight=native
+ sudo vim /etc/default/grub
+ sudo grub-mkconfig -o /boot/grub.cfg
