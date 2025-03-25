@@ -37,11 +37,31 @@ openvpn --config your-config.ovpn
 # Enter OpenVPN credentials when prompted
 ```
 
+## Additional Programs
 
-programs
-
+### Package Managers
+```bash
+# Install Flatpak
 sudo pacman -S flatpak
 
-acpi_backlight=native
- sudo vim /etc/default/grub
- sudo grub-mkconfig -o /boot/grub.cfg
+# Add Flathub repository
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+
+### System Configurations
+
+#### Fix Backlight Controls
+Add kernel parameter for native backlight control:
+```bash
+sudo vim /etc/default/grub
+```
+
+Add `acpi_backlight=native` to the `GRUB_CMDLINE_LINUX_DEFAULT` line:
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_backlight=native"
+```
+
+Update GRUB configuration:
+```bash
+sudo grub-mkconfig -o /boot/grub.cfg
+```
